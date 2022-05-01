@@ -21,6 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 //---
 import { HomeComponent } from './home/home.component';
@@ -52,6 +54,8 @@ import { HomeComponent } from './home/home.component';
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

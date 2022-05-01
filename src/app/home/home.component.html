@@ -1,4 +1,57 @@
 <div class="container">
+  <div class="chains">
+    <mat-card class="example-card">
+      <!-- <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+      </mat-card-title-group> -->
+      <mat-card-content>
+        Processo seletivos desorganizados, falta de retorno da empresa, testes cansativos sem ao menos entrevistas preliminares,
+        abuso da boa vontade do candidato ainda mais quando se encontra em situação de desemprego.
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card">
+      <!-- <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+      </mat-card-title-group> -->
+      <mat-card-content>
+        Muitas vezes vagas são usadas para melhorar o processo de contratação e onde a boa vontade é colocada a prova e sem escolha
+        embarcamos em todos os processos possíveis na esperança de conseguir o tão esperado sim.
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card">
+      <!-- <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+      </mat-card-title-group> -->
+      <mat-card-content>
+        Casos e mais casos de falta de empatia, respeito e ao menos uma resposta, mesmo que negativa, tornam os processos na busca
+        de uma oportunidade um tormento principalmente para queles que se encontram em situacão desesperadora.
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card">
+      <!-- <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+      </mat-card-title-group> -->
+      <mat-card-content>
+        Aqui você pode registrar os casos em que ficou no vácuo de maneira <B>anônima</B> e presenvando sua privacidade e desta forma contribuir para
+        que juntos seja possível construir um processo melhor e de respeito para todos.
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- <span style="font-size: 10pt;">
+
+    <br/><br/>
+    Muitas vezes vagas são usadas para melhorar o processo de contratação e por isso a boa vontade é colocada a prova e sem escolha
+    embarcamos em todos os processos possíveis na esperança de conseguir o tão esperado sim.
+    <br/><br/>
+    Casos e mais casos de falta de empatia, respeito e ao menos uma resposta, mesmo que negativa, tornam os processos na busca
+    de uma oportunidade um tormento principalmente para queles que se encontram em situacão desesperadora.
+    <br/><br/>
+
+  </span> -->
+
   <h4>Qual empresa deixou você no vácuo?</h4>
   <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
       <mat-form-field appearance="standard" class="full-width">
@@ -49,7 +102,7 @@
           </mat-radio-group>
       </div>
       <br/> -->
-    <mat-form-field color="primary" appearance="fill"  hintLabel="Desde quando vc aguarda um retorno da empresa?">
+    <mat-form-field color="primary" appearance="fill"  hintLabel="Desde quando você aguarda um retorno da empresa?">
       <mat-label>Aguardando retorno</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="dob">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -77,13 +130,23 @@
         <mat-option value="VERY-INSATISFIED">Muito Insatisfeito</mat-option>
       </mat-select>
     </mat-form-field>
-    <br/><br/><br/><br/>
+    <br/><br/>
+
+    <mat-form-field appearance="fill" style="width:650px;">
+      <mat-label>Como foi sua experiência?</mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <br/><br/>
 
     <mat-divider></mat-divider>
     <br/>
 
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Criar Meu Vácuo</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Registrar Vácuo</button>
     </div>
   </form>
   <div>{{ form.value | json }}</div>
