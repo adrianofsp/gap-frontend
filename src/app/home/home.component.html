@@ -1,0 +1,90 @@
+<div class="container">
+  <h4>Qual empresa deixou você no vácuo?</h4>
+  <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
+      <mat-form-field appearance="standard" class="full-width">
+          <mat-label>Nome da Empresa</mat-label>
+          <input matInput maxlength="15" inputmode="tel" placeholder="Digite o nome da empresa que te deixou no vácuo" formControlName="name" #nameInput>
+          <mat-hint>Digite ao menos 3 caracteres: {{ nameInput.value.length }}/3</mat-hint>
+          <mat-error>O nome da empresa é obrigatório</mat-error>
+          <mat-error *ngIf="(form.get('name'))?.errors?.['minlength']">
+              Por favor digite ao menos 3 caracteres para o nome da empresa
+          </mat-error>
+      </mat-form-field>
+      <br/><br/>
+
+      <mat-form-field appearance="legacy" class="full-width">
+          <mat-label>E-mail:</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Seu e-mail">
+          <mat-icon matSuffix>mail_outline</mat-icon>
+          <mat-hint>Informe seu email pessoal</mat-hint>
+          <mat-error *ngIf="(form.get('email'))?.errors?.['required']">O seu e-mail é obrigatório</mat-error>
+          <mat-error *ngIf="(form.get('email'))?.errors?.['pattern']">Informe um enedreço de e-mail válido</mat-error>
+      </mat-form-field>
+      <br/><br/>
+
+      <!--
+      <mat-form-field appearance="standard">
+          <mat-label>Address:</mat-label>
+          <textarea matInput placeholder="address" formControlName="address"></textarea>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill" hintLabel="Country name required">
+          <mat-label>Country</mat-label>
+          <mat-select matNativeControl name="country" formControlName="country">
+              <mat-option value="india">India</mat-option>
+              <mat-option value="france">France</mat-option>
+              <mat-option value="germany">Germany</mat-option>
+              <mat-option value="japan">Japan</mat-option>
+              <mat-option value="Mongolia">Mongolia</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br/> -->
+      <!-- <div style="margin-top:10px;">
+          <div style="margin-right:3%; color:#6b6b6b;">
+              <mat-label>Gender</mat-label>
+          </div>
+          <mat-radio-group formControlName="gender">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+      </div>
+      <br/> -->
+    <mat-form-field color="primary" appearance="fill"  hintLabel="Desde quando vc aguarda um retorno da empresa?">
+      <mat-label>Aguardando retorno</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dob">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker color="primary"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" hintLabel="Qual sua situação?">
+      <mat-label>Situação atual</mat-label>
+      <mat-select matNativeControl name="situation" formControlName="situation">
+        <mat-option value="EMPLOYEE">Empregado</mat-option>
+        <mat-option value="UNEMPLOYEE">Desempregado</mat-option>
+        <mat-option value="FREELANCER">Autônomo</mat-option>
+        <mat-option value="TEMPORARY">Temporário</mat-option>
+        <mat-option value="OTHER">Outro</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" hintLabel="Qual sua satisfação com o processo seletivo?">
+      <mat-label>Satisfação</mat-label>
+      <mat-select matNativeControl name="satisfaction" formControlName="satisfaction">
+        <mat-option value="VERY-SATISFIED">Muito Satisfeito</mat-option>
+        <mat-option value="SATISFIED">Satisfeito</mat-option>
+        <mat-option value="NORMAL">Indiferente</mat-option>
+        <mat-option value="INSATISFIED">Insatisfeito</mat-option>
+        <mat-option value="VERY-INSATISFIED">Muito Insatisfeito</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/><br/><br/><br/>
+
+    <mat-divider></mat-divider>
+    <br/>
+
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Criar Meu Vácuo</button>
+    </div>
+  </form>
+  <div>{{ form.value | json }}</div>
+</div>
